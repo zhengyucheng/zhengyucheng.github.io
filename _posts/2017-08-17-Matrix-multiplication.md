@@ -4,7 +4,7 @@ title:      "矩阵乘法"
 subtitle:   "线性常系数递推"
 date:       2017-08-17 14:54:00
 author:     "Monad"
-header-img: "img/Matrix-multiplication.jpg"
+header-img: "img/post/Matrix-multiplication/Background.jpg"
 mathjax:    true
 tags:
     - 信息学
@@ -26,7 +26,7 @@ $$ A = \begin{bmatrix} 9 & 3 & 15\\ 1 & 11 & 7 \\ 3 & 9 & 2 \\ 6 & 0 & 7 \end{bm
 矩阵乘法是一种很特殊的东西，它仅仅在A的列数等于B的行数时成立。目标矩阵的大小则是A的行数×B的列数，对于目标矩阵的每一个元素C<sub>ij</sub>：
 $$ C_{i,j}=A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+...+A_{i,n}B_{n,j}=\sum_{r=1}^{n}A_{i,r}B_{r,j} $$
 如果看不懂公式，也可以看下面生动形象的图片解释：  
-![矩阵乘法](http://oiq7rdgur.bkt.clouddn.com/jianshu/1/Matrix_multiplication.svg)
+![矩阵乘法](/img/post/Matrix-multiplication/Matrix_multiplication.svg)
 
 ## 线性常系数递推
 ```C++
@@ -34,7 +34,7 @@ f[i] = f[i-1] + f[i-2]
 ```
 线性常系数递推，顾名思义，“线性”，就是只有一次项，没有平方、开方、立方等操作；“常系数”，就是未知数（指`f[i-1]`和`f[i-2]`）的系数是一个常数，不是变量。
 那么这个神奇的矩阵乘法真的可以帮我们解决这个问题吗？那么又怎么生成出需要的矩阵呢？    
-![](http://oiq7rdgur.bkt.clouddn.com/jianshu/1/1.svg)
+![](/img/post/Matrix-multiplication/Fibonacci.svg)
 如图所示，这是一个斐波那契数列。我们可以选取数列中的`[1,2]`来生成一个一行二列的矩阵。然后我们要通过何种操作才能使`[1,2]`这个矩阵生成出`[2,3]`这个新矩阵呢？
 $$ \begin{bmatrix} 1 & 2 \end{bmatrix} \times \begin{bmatrix} ? & ? \\ ? & ? \end{bmatrix} = \begin{bmatrix} 2 & 3 \end{bmatrix} $$
 我们可以从我们的递推公式入手，我们发现，我们要使第一个数列的2和第二个数列的2保持相等，然后使第二个矩阵的的第二个数等于第一个矩阵的数的和。稍微地想一下、推一下，就可以知道问号处应该填：
