@@ -18,12 +18,16 @@ f[i] = f[i-1] + f[i-2]
 
 ## 矩阵
 矩阵是一个什么东西呢？矩阵是一个有n行m列元素排成的举行阵列，简单来说，矩阵就是一个二维数组。我们也可以用A, B, C等大写字母来命名一个矩阵。
-$$ A = \begin{bmatrix} 9 & 3 & 15\\ 1 & 11 & 7 \\ 3 & 9 & 2 \\ 6 & 0 & 7 \end{bmatrix} $$
+$$
+A = \begin{bmatrix} 9 & 3 & 15\\ 1 & 11 & 7 \\ 3 & 9 & 2 \\ 6 & 0 & 7 \end{bmatrix}
+$$
 矩阵和整数一样，也支持加减乘操作。这里我们就先介绍一下乘法，加减法后面在介绍。
 
 ### 矩阵乘法
 矩阵乘法是一种很特殊的东西，它仅仅在A的列数等于B的行数时成立。目标矩阵的大小则是A的行数×B的列数，对于目标矩阵的每一个元素C<sub>ij</sub>：
-$$ C_{i,j}=A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+...+A_{i,n}B_{n,j}=\sum_{r=1}^{n}A_{i,r}B_{r,j} $$
+$$
+C_{i,j}=A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+...+A_{i,n}B_{n,j}=\sum_{r=1}^{n}A_{i,r}B_{r,j}
+$$
 如果看不懂公式，也可以看下面生动形象的图片解释：  
 ![矩阵乘法](http://oiq7rdgur.bkt.clouddn.com/jianshu/1/Matrix_multiplication.svg)
 
@@ -35,16 +39,24 @@ f[i] = f[i-1] + f[i-2]
 那么这个神奇的矩阵乘法真的可以帮我们解决这个问题吗？那么又怎么生成出需要的矩阵呢？    
 ![](http://oiq7rdgur.bkt.clouddn.com/jianshu/1/1.svg)
 如图所示，这是一个斐波那契数列。我们可以选取数列中的`[1,2]`来生成一个一行二列的矩阵。然后我们要通过何种操作才能使`[1,2]`这个矩阵生成出`[2,3]`这个新矩阵呢？
-$$ \begin{bmatrix} 1 & 2 \end{bmatrix} \times \begin{bmatrix} ? & ? \\ ? & ? \end{bmatrix} = \begin{bmatrix} 2 & 3 \end{bmatrix} $$
+$$
+\begin{bmatrix} 1 & 2 \end{bmatrix} \times \begin{bmatrix} ? & ? \\ ? & ? \end{bmatrix} = \begin{bmatrix} 2 & 3 \end{bmatrix}
+$$
 我们可以从我们的递推公式入手，我们发现，我们要使第一个数列的2和第二个数列的2保持相等，然后使第二个矩阵的的第二个数等于第一个矩阵的数的和。稍微地想一下、推一下，就可以知道问号处应该填：
-$$ \begin{bmatrix} 0 & 1 \\ 1 & 1 \end{bmatrix} $$
+$$
+\begin{bmatrix} 0 & 1 \\ 1 & 1 \end{bmatrix}
+$$
 然后我们在看一下如何从`[2,3]`推到`[3,5]`呢？重复上面的步骤，我们可以发现，从`[2,3]`推到`[3,5]`所需要的矩阵也是上面那个：
-$$ \begin{bmatrix} 0 & 1 \\ 1 & 1 \end{bmatrix} $$
+$$
+\begin{bmatrix} 0 & 1 \\ 1 & 1 \end{bmatrix}
+$$
 这样，我们就可以求这个特殊矩阵的`n`次幂，然后再与`[1,1]`相乘，就可以得出结果了。
 
 ## 快速幂
 现在我们再来介绍一个新的东西，就是快速幂。如果我们计算n<sup>m</sup>时，如果`m`足够大，那么用`O(m)`的方法肯定会超时。因为整数满足乘法结合律，所以如图所示，
-$$ (a\times a\times a)\times (a\times a\times a) $$
+$$
+(a\times a\times a)\times (a\times a\times a)
+$$
 我们可以对上面的`a⁶`拆分成`(a³)²`，然后在把`a³`拆分成`(a)²a`。这样来算幂，我们就只需要`O(log m)`的时间复杂度。
 
 ## 矩阵乘法快速幂
