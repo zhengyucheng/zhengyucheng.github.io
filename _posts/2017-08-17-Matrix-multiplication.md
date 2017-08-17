@@ -5,6 +5,7 @@ subtitle:   "线性常系数递推"
 date:       2017-08-17 14:54:00
 author:     "Monad"
 header-img: "img/Matrix-multiplication.jpg"
+mathjax:    true
 tags:
     - 信息学
 ---
@@ -68,5 +69,5 @@ $$
 有了这个性质之后，我们就可以对这个矩阵进行快速幂操作，这样那硕大的`O(n)`的时间复杂度就降低到`O(log n)`，加上矩阵乘法的时间，也只不过是`O(x³log n)`而已，完全可以在`1s`内得到正确答案。
 
 ## 链接
-题目：[POJ 3070](http://poj.org/problem?id=3070)
+题目：[POJ 3070](http://poj.org/problem?id=3070)  
 我的[代码](https://github.com/YanWQ-monad/monad/blob/master/Cpp/Exam-answer/poj.org/3070.cpp)（非常玄学）

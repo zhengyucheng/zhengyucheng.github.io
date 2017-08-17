@@ -6,9 +6,10 @@ email: YanWQ-monad@gmail.com
 description: ""
 keyword: ""
 url: "https://YanWQ-monad.github.io/"              # your host, for absolute URL
-baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: "/blog"         # for example, '/blog' if your blog hosted on 'host/blog'
 
-
+# MathJax
+mathjax: true
 
 # SNS settings
 RSS: false
