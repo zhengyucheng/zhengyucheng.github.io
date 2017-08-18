@@ -34,7 +34,7 @@ class SmojSubmitCommand(sublime_plugin.TextCommand):
 然后在Sublime的`Package`目录中，新建一个文件夹，名字就是你的插件的名字，然后把这个`.py`文件放入这个文件夹内。  
 然后调用这个类的方式就是在Sublime的`Console`中，输入`view.run_command('class_name')`。然后这里的class_name和上面的类名不一样。这里的命名是上面的类名去掉Command之后，用下划线小写命名。例如`SmojSubmitCommand`就是`smoj_submit`。  
 不过每次都打开`Console`来运行，很不方便。所以可以为它定义一个右键菜单项。首先在你的包文件夹内新建一个`Context.sublime-menu`文件，然后在里面输入：
-``` Json
+``` json
 [
     { "caption": "-" },  // 开始分隔符
     {
