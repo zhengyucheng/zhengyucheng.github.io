@@ -26,7 +26,7 @@ tags:
 #### Sublime plugin
 Sublime Text 的插件我之前没有写过，Google了一下之后，就开始学习一下。
 Sublime Text 的插件的class是用大驼峰式命名法，而且类名结尾必须是`Command`，否则Sublime不会识别。然后在这个类里面要定义一个`run`方法，Sublime调用这个类的入口就是`run`。
-``` Python
+``` python
 class SmojSubmitCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         pass
@@ -34,7 +34,7 @@ class SmojSubmitCommand(sublime_plugin.TextCommand):
 然后在Sublime的`Package`目录中，新建一个文件夹，名字就是你的插件的名字，然后把这个`.py`文件放入这个文件夹内。  
 然后调用这个类的方式就是在Sublime的`Console`中，输入`view.run_command('class_name')`。然后这里的class_name和上面的类名不一样。这里的命名是上面的类名去掉Command之后，用下划线小写命名。例如`SmojSubmitCommand`就是`smoj_submit`。  
 不过每次都打开`Console`来运行，很不方便。所以可以为它定义一个右键菜单项。首先在你的包文件夹内新建一个`Context.sublime-menu`文件，然后在里面输入：
-``` json
+``` Json
 [
     { "caption": "-" },  // 开始分隔符
     {
@@ -48,7 +48,7 @@ class SmojSubmitCommand(sublime_plugin.TextCommand):
 然后保存，（最好）重启Sublime，你就会发现在右键菜单中多了一个选项。  
 编写完一些环境设置之后，就要编写插件的主体部分了。  
 首先就是找出缓冲区的题号标志符`//1234.cpp`。翻了一下Sublime API之后，发现搜索可以调用`find`。而且我还惊奇地发现，`find`居然支持正则表达式，这不是硕棒无比吗？直接来一个`// ?(\d{4,})\.cpp`正则就好了。
-``` Python
+``` python
 class SmojSubmitCommand(sublime_plugin.TextCommand):
     # ...
     def getProblemNum(self):
@@ -62,7 +62,7 @@ class SmojSubmitCommand(sublime_plugin.TextCommand):
         return int(cpp_num)
 ```
 然后就要去掉`freopen`的注释并且把里面的文件名改对。这个步骤也可以用“万能”的正则表达式完成。
-``` Python
+``` python
 class SmojSubmitCommand(sublime_plugin.TextCommand):
     def fillFreopen(self, content, problem):
         _fre_re = re.compile(r'freopen\("([^.])+\.(in|out)"( ?), "(r|w)", std(in|out)( ?)\);')
@@ -86,14 +86,14 @@ Chrome给SMOJ Post了3个数据，一个是题目的编号`pid`，一个是要�
 这次的包有三个数据，`redirect_to`为空，我猜它应该是决定登录之后重定向到哪里；`username`为你的用户名；`password`就是密码的明文。  
 我们Post了登录数据之后还要保留这个`cookie`，因为它在submit的时候还要用到。所以我选的是`urllib`中的`opener`。  
 首先要生成一个`opener`对象：
-``` Python
+``` python
 cookie  = http.cookiejar.CookieJar()
 handler = urllib.request.HTTPCookieProcessor(cookie)
 opener  = urllib.request.build_opener(handler)
 ```
 然后`cookie`和`handler`就没什么用了，下面只需要用到`opener`。然后就要登录。  
 登录可以用`r=urllib.request.Request(url, data, headers)`加上`opener.open(r)`来实现。这里的`data`的类型是`bytes`，但是自己拼接`data`有点麻烦，可以用`urllib.parse.urlencode(dict).encode()`把一个`dict`编码成一个`bytes`类型，而且无需担心url的转码问题。然后`headers`就直接传一个`dict`就好了。  
-``` Python
+``` python
 values = {'redirect_to':'', 'username':username, 'password':password}
 r = urllib.request.Request(url=config.root_url+'/login', data=urllib.parse.urlencode(values).encode(), headers=headers)
 response = opener.open(r)
@@ -101,7 +101,7 @@ response = opener.open(r)
 登录后还要判断是否登录成功。因为我们这个题库如果不登陆的话，你只能访问login页面，只有登录了才能看里面的内容。如果登录成功，默认是跳转到首页。因为`Request`会自动处理重定向，所以这里可以检测当前url是否不为登录页面就行。  
 登录完成后，`opener`里面就存储了用于验证身份的cookie，之后可以直接拿`opener`来用，也不用导出cookie，很方便。  
 Post也类似，只要把`url`换成提交代码的url，再把`data`换成提交代码的data就行了。至于判断是否提交成功（我们题库有一些题是没权限提交的），则可以判断当前url是否为`/allmysubmits`即可。
-``` Python
+``` python
 values  = {'pid':str(problem), 'language':'.cpp', 'code':cpp}
 r = urllib.request.Request(url=(post_url % problem), data=urllib.parse.urlencode(values).encode(), headers=headers)
 response = self.opener.open(r)
@@ -112,7 +112,7 @@ response = self.opener.open(r)
 但是这样会有一个问题，因为我们的题库的网络很慢，如果用单线程（默认）的话，一提交就会卡，直到submit完成。  
 所以应该要对网络操作新建一个线程。线程的话就和Sublime插件接口没有多大关联，直接用Python的写法就可以了。  
 多线程执行的内容要写在一个`class`里面，这个`class`要继承自`threading.Thread`。如果要写`__init__`的话，记得在`__init__`的最后调用`threading.Thread`的`__init__`。调用这个`class`：
-``` Python
+``` python
 thread = ThreadingClass() # 这里的参数是传给__init__的
 thread.start()
 ```

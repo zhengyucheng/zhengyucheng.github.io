@@ -23,6 +23,7 @@ github_username:    YanWQ-monad
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+# highlight: true
 highlighter: rouge
 permalink: pretty
 paginate: 10
@@ -44,6 +45,7 @@ anchorjs: true                          # if you want to customize anchor. check
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
+  syntax_highlighter: rouge
 
 
 
@@ -75,7 +77,7 @@ sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in
 
 
 # Featured Tags
-featured-tags: true                     # whether or not using Feature-Tags
+featured-tags: false                     # whether or not using Feature-Tags
 featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
 
 
