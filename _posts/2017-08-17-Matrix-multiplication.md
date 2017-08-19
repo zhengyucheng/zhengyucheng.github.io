@@ -7,7 +7,7 @@ author:     "Monad"
 header-img: "img/post/Matrix-multiplication/Background.jpg"
 mathjax:    true
 tags:
-    - 信息学
+    - 算法
 ---
 
 ## 引入

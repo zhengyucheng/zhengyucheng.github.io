@@ -25,7 +25,6 @@
                     </li>
                     {% endif %}
 
-                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
                     {% if site.zhihu_username %}
                     <li>
                         <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
@@ -38,7 +37,7 @@
                     {% endif %}
                     {% if site.weibo_username %}
                     <li>
-                        <a target="_blank" href="https://weibo.com/{{ site.weibo_username }}">
+                        <a target="_blank" href="https://weibo.com/u/{{ site.weibo_username }}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
@@ -46,7 +45,6 @@
                         </a>
                     </li>
                     {% endif %}
-
 
                     {% if site.facebook_username %}
                     <li>
@@ -58,12 +56,46 @@
                         </a>
                     </li>
                     {% endif %}
+
+                    {% if site.google_plus_id %}
+                    <li>
+                        <a target="_blank" href="https://plus.google.com/u/0/{{ site.google_plus_id }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-google-plus fa-stack-1x fa-inverse" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
+
                     {% if site.github_username %}
                     <li>
                         <a target="_blank" href="https://github.com/{{ site.github_username }}">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% if site.email %}
+                    <li>
+                        <a target="_blank" href="mailto:{{ site.email }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% if site.qq_id %}
+                    <li>
+                        <a target="_blank" href="tencent://message/?uin={{ site.qq_id }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-qq fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
                     </li>
@@ -79,6 +111,9 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<!-- Canvas-Nest -->
+<script src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" count=32></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
@@ -99,7 +134,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("/js/jquery.tagcloud.js",function(){
+        async("/js/jquery.tagcloud.min.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
