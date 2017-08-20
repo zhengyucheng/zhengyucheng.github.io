@@ -40,18 +40,34 @@ kramdown:
   syntax_highlighter: rouge
 
 # Sidebar settings
-sidebar: false                           # whether or not using Sidebar.
+sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "一入OI深似海，从此智商是路人"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/Avatar.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
 featured-tags: false                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+featured-condition-size: 2              # A tag will be featured if the size of it is more than this condition value
 
 # Friends
-#friends: [
-#    {
-#        title: "Ghastlcon",
-#        href: "https://Ghastlcon.github.io"
-#    }
-#]
+friends: [
+  {
+    title: "Ghastlcon",
+    href : "https://Ghastlcon.github.io"
+  },
+  {
+    title: "Kaibin-Lu",
+    href : "https://Kaibin-Lu.github.io"
+  },
+  {
+    title: "wyy",
+    href : "http://www.cnblogs.com/littlewyy",
+  },
+  {
+    title: "zqy",
+    href : "http://www.cnblogs.com/yiyiyizqy",
+  },
+  {
+    title: "aspe",
+    href : "http://yhf4aspe.blog.163.com"
+  }
+]

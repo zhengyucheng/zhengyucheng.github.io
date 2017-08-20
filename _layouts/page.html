@@ -53,9 +53,16 @@ layout: default
                 {% if site.friends %}
                 <hr>
                 <h5>FRIENDS</h5>
-                <ul class="list-inline">
+                <!-- <ul class="list-inline"> -->
+                <ul>
                     {% for friend in site.friends %}
-                        <li><a href="{{friend.href}}">{{friend.title}}</a></li>
+                        <li>
+                        <a href="{{friend.href}}">{{friend.title}}</a>
+                        {% if friend.password %}
+                        <br/>
+                        password: {{ friend.password }}
+                        {% endif %}
+                        </li>
                     {% endfor %}
                 </ul>
                 {% endif %}
@@ -109,6 +116,7 @@ layout: default
                             <p>{{site.sidebar-about-description}}</p>
                         {% endif %}
                         <!-- SNS Link -->
+                        <!--
                         <ul class="list-inline">
                             {% if site.RSS %}
                             <li>
@@ -171,15 +179,23 @@ layout: default
                             </li>
                             {% endif %}
                         </ul>
+                        -->
                     </div>
                 </section>
                 <!-- Friends Blog -->
                 {% if site.friends %}
                 <hr>
                 <h5>FRIENDS</h5>
-                <ul class="list-inline">
+                <!-- <ul class="list-inline"> -->
+                <ul>
                     {% for friend in site.friends %}
-                        <li><a href="{{friend.href}}">{{friend.title}}</a></li>
+                        <li>
+                        <a href="{{friend.href}}">{{friend.title}}</a>
+                        {% if friend.password %}
+                        <br/>
+                        password: {{ friend.password }}
+                        {% endif %}
+                        </li>
                     {% endfor %}
                 </ul>
                 {% endif %}

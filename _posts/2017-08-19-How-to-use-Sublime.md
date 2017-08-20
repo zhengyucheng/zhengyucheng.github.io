@@ -96,9 +96,15 @@ Sublime可以很方便地安装插件，只要把下载的插件解压到`Packag
 #### 插件推荐
 **无插件，不神器**，下面就介绍一些常用的插件。[ 回家再补图 ]
 ##### OmniMarkupPreviewer
-对于经常写Markdown的人来说，`OmniMarkupPreviewer`是一款必不可少的插件。它可以让你**实时**预览你的Markdown，而且它还支持MathJax。它的预览还可以是局域网内，也就是说，你可以用另一台设备预览你正在编辑的Markdown。当你编辑完成之后，它还可以把内容导出为HTML或PDF等格式。
+对于经常写Markdown的人来说，`OmniMarkupPreviewer`是一款必不可少的插件。它可以让你**实时**预览你的Markdown，而且它还支持MathJax。它的预览还可以是局域网内，也就是说，你可以用另一台设备预览你正在编辑的Markdown。当你编辑完成之后，它还可以把内容导出为HTML等格式。
 
 ##### SublimeGDB
 如果你之前是用Dev-C++，那么你应该记得它的GUI调试功能。Sublime也不会落后，也有一款插件支持GUI调试，那就是SublimeGDB。它调试时提供的信息比Dev-C++的还要多。例如调用栈、变量查看（结构体展开）、GDB命令行交互、多线程调试等。*比Dev-C++不知道高到哪里去了*。
+![SublimeGDB](/img/post/How-to-use-Sublime/SublimeGDB.png)
 
-未完
+##### Boxy Theme
+这个是一个Sublime的主题插件，可以让你的Sublime变得更漂亮（扁平化），效果就跟上面那个图差不多。而且还能让侧边栏的颜色和代码窗口的颜色相匹配，不至于逼死某些强迫症。它还有几种不同的配色给你选择，详情请移步至[Boxy Theme](https://packagecontrol.io/packages/Boxy%20Theme)
+
+##### WakaTime
+时间都到哪里去了？美好的一天都跑到哪里去了？WakaTime可以记录你在每一个项目，每一个文件，每一种语言所消耗的时间，并且精确到秒。你就可以精确且高效地管理你coding的时间，不必在一些其它的地方浪费时间。如果你想的话，你还可以拿到社交网站上装13。
+![WakaTime](/img/post/How-to-use-Sublime/WakaTime.jpg)
