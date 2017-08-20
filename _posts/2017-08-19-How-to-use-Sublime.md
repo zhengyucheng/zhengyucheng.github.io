@@ -2,7 +2,7 @@
 layout:     post
 title:      "Sublime Text"
 subtitle:   "最“性感”的编辑器"
-date:       2017-08-19 13:30:00
+date:       2017-08-20 11:13:00
 author:     "Monad"
 header-img: "img/post/How-to-use-Sublime/Background.jpg"
 mathjax:    false
@@ -108,3 +108,20 @@ Sublime可以很方便地安装插件，只要把下载的插件解压到`Packag
 ##### WakaTime
 时间都到哪里去了？美好的一天都跑到哪里去了？WakaTime可以记录你在每一个项目，每一个文件，每一种语言所消耗的时间，并且精确到秒。你就可以精确且高效地管理你coding的时间，不必在一些其它的地方浪费时间。如果你想的话，你还可以拿到社交网站上装13。
 ![WakaTime](/img/post/How-to-use-Sublime/WakaTime.jpg)
+你只要在[WakaTime](https://wakatime.com/)上注册一个帐号，它就会给你一个`key`，然后把这个`key`输入进Sublime的WakaTime插件中，它就会记录你coding的时间，并且发送到服务器进行统计。
+
+##### SublimeTmpl
+SublimeTmpl这款插件可以在你新建文件的时候添加模板内容，这样你以后就不用手动给C++打头文件、给HTML输入HTML头，不用给Python加入encoding注释等等。而且你还可以修改原有的配置或者新增你自己的配置。
+
+##### 剩下一些可以根据个人喜好或需求安装：
+* **ConvertToUTF8**
+  支持 GBK, BIG5 等编码
+* **WordCount**
+  安装后在右下角显示字数
+* **ClickableURLs**b
+  让文件中的URL可以点击
+* **YUI Compressor**
+  压缩JS和CSS文件
+
+### 实用技巧
+[ 待更 ]
