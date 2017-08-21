@@ -118,6 +118,9 @@
 <!-- Custom Theme JavaScript -->
 <script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
 
+<!-- LightBox -->
+<script src="https://cdn.bootcss.com/lightbox2/2.9.0/js/lightbox.min.js"></script>
+
 <!-- async load function -->
 <script>
     function async(u, c) {
@@ -201,16 +204,33 @@
 
 {% endif %}
 
+<!-- LightBox for Markdown -->
+<script type="text/javascript">
+$(function() {
+    $('img').each(function() {
+        var that = $(this);
+        that.closest('a').attr('data-toggle', 'lightbox').attr('rel', 'lightbox').attr('data-title', that.attr('alt'));
+    });
+
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(e) {
+        e.preventDefault();
+        $(this).ekkoLightbox();
+    });
+})
+</script>
+
 <!-- Baidu Analytics -->
 {% if site.ba_track_id %}
+{% if site.inserver %}
 <script>
     var _baId = '{{ site.ba_track_id }}';
     var _hmt = _hmt || [];
     (function() {
         var hm = document.createElement("script");
         hm.src = "https://hm.baidu.com/hm.js?" + _baId;
-        var s = document.getElementsByTagName("script")[0]; 
+        var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
 </script>
+{% endif %}
 {% endif %}
