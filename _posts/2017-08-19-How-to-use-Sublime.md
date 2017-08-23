@@ -6,6 +6,7 @@ date:       2017-08-20 11:13:00
 author:     "Monad"
 header-img: "img/post/How-to-use-Sublime/Background.jpg"
 mathjax:    false
+catalog:    true
 tags:
     - Sublime
 ---
@@ -52,7 +53,7 @@ Sublime Text 3 比 Sublime Text 2 启动更快，而且基于Python 3，所以�
 }
 ```
 然后打开一个`cpp`文件，按下`Ctrl`+`Shift`+`B`，你应该会看到这个弹出框。因为我装了一个主题插件，所以样式看起来有一点不同，这没什么关系。
-![Build With](/img/post/How-to-use-Sublime/BuildWith.png)
+[![Build With](/img/post/How-to-use-Sublime/BuildWith.png)](/img/post/How-to-use-Sublime/BuildWith.png)
 前两个`C++ Single File`是 Sublime 自带的编译脚本。后面五个是我的脚本的编译选项。各个选项作用如下：
 * `[Default]` 只编译，不运行；
 * `Run` 编译并运行。
@@ -65,9 +66,9 @@ Sublime Text 3 比 Sublime Text 2 启动更快，而且基于Python 3，所以�
 #### 添加g++至 PATH
 如果你现在不能正确地执行上面的编译选项，那么请检查你是否把g++所在目录添加至PATH。步骤如下：
 1. 找出你g++.exe所在目录，并且复制：
-![g++ PATH](/img/post/How-to-use-Sublime/CxxPath.png)
+[![g++ PATH](/img/post/How-to-use-Sublime/CxxPath.png)](/img/post/How-to-use-Sublime/CxxPath.png)
 2. 右键`我的电脑`，依次选择`属性`，`环境变量`，然后双击`PATH`，在`变量值`中添加`;`和刚刚复制的目录。
-![Set PATH steps](/img/post/How-to-use-Sublime/PathSteps.png)
+[![Set PATH steps](/img/post/How-to-use-Sublime/PathSteps.png)](/img/post/How-to-use-Sublime/PathSteps.png)
 3. 如果要用上面的`Run in Console (compile)`和`Run in Console (Run only)`，请把Dev-C++根目录下的`ConsolePauser.exe`复制到上述g++所在的目录中。
 4. 重启Sublime Text。  
 
@@ -95,19 +96,20 @@ Sublime可以很方便地安装插件，只要把下载的插件解压到`Packag
 
 #### 插件推荐
 **无插件，不神器**，下面就介绍一些常用的插件。[ 回家再补图 ]
+
 ##### OmniMarkupPreviewer
 对于经常写Markdown的人来说，`OmniMarkupPreviewer`是一款必不可少的插件。它可以让你**实时**预览你的Markdown，而且它还支持MathJax。它的预览还可以是局域网内，也就是说，你可以用另一台设备预览你正在编辑的Markdown。当你编辑完成之后，它还可以把内容导出为HTML等格式。
 
 ##### SublimeGDB
 如果你之前是用Dev-C++，那么你应该记得它的GUI调试功能。Sublime也不会落后，也有一款插件支持GUI调试，那就是SublimeGDB。它调试时提供的信息比Dev-C++的还要多。例如调用栈、变量查看（结构体展开）、GDB命令行交互、多线程调试等。*比Dev-C++不知道高到哪里去了*。
-![SublimeGDB](/img/post/How-to-use-Sublime/SublimeGDB.png)
+[![SublimeGDB](/img/post/How-to-use-Sublime/SublimeGDB.png)](/img/post/How-to-use-Sublime/SublimeGDB.png)
 
 ##### Boxy Theme
 这个是一个Sublime的主题插件，可以让你的Sublime变得更漂亮（扁平化），效果就跟上面那个图差不多。而且还能让侧边栏的颜色和代码窗口的颜色相匹配，不至于逼死某些强迫症。它还有几种不同的配色给你选择，详情请移步至[Boxy Theme](https://packagecontrol.io/packages/Boxy%20Theme)
 
 ##### WakaTime
 时间都到哪里去了？美好的一天都跑到哪里去了？WakaTime可以记录你在每一个项目，每一个文件，每一种语言所消耗的时间，并且精确到秒。你就可以精确且高效地管理你coding的时间，不必在一些其它的地方浪费时间。如果你想的话，你还可以拿到社交网站上装13。
-![WakaTime](/img/post/How-to-use-Sublime/WakaTime.jpg)
+[![WakaTime](/img/post/How-to-use-Sublime/WakaTime.jpg)](/img/post/How-to-use-Sublime/WakaTime.jpg)
 你只要在[WakaTime](https://wakatime.com/)上注册一个帐号，它就会给你一个`key`，然后把这个`key`输入进Sublime的WakaTime插件中，它就会记录你coding的时间，并且发送到服务器进行统计。
 
 ##### SublimeTmpl
@@ -118,10 +120,12 @@ SublimeTmpl这款插件可以在你新建文件的时候添加模板内容，这
   支持 GBK, BIG5 等编码
 * **WordCount**
   安装后在右下角显示字数
-* **ClickableURLs**b
+* **ClickableURLs**
   让文件中的URL可以点击
 * **YUI Compressor**
   压缩JS和CSS文件
 
 ### 实用技巧
-[ 待更 ]
+#### Ctrl+D
+有时候遇到命名冲突，需要批量修改变量名时，一般都会一个一个改或者用一键替换的功能。但是一个一个改效率慢，一键替换会误伤。在Sublime中，你可以选择你想要修改的变量名中的一个，然后用`Ctrl`+`D`快速选择下面的变量，就可以批量修改文件名，非常方便。如果不想选择`printf`中的名字或者其它正常的名字，则可以用`Ctrl`+`K`跳过，如果选过头了，还可以用`Ctrl`+`U`回退。
+[![Ctrl+D](/img/post/How-to-use-Sublime/CtrlD.gif)](/img/post/How-to-use-Sublime/CtrlD.gif)
