@@ -6,6 +6,7 @@ date:       2017-08-18 09:58:00
 author:     "Monad"
 header-img: "img/post/SmojSubmit/Background.png"
 mathjax:    false
+catalog:    true
 tags:
     - Sublime
 ---
@@ -19,7 +20,7 @@ tags:
 然后插件又如何获取你要提交的题号呢？难道要检测`freopen`？我觉得不行，因为我们平时调试都是用`freopen("Temp.in", "r", stdin);`的，检测不到题号。那么除了这个以外，也没有什么可以作为判断了。  
 那么既然没什么可以判断了，那就只能新增规则了。征求了我旁边的几位OIer之后，决定用`//1234.cpp`这个注释作为题号的标志。  
 所以最终就得出了这么一个流程图：
-![](/img/post/SmojSubmit/FlowChart.svg)
+[![流程图](/img/post/SmojSubmit/FlowChart.svg)](/img/post/SmojSubmit/FlowChart.svg)
 
 ### 编写
 在编写的过程中，主要有两个障碍，一个是Sublime插件的使用姿势，另一个是Python的`urllib`的使用。
@@ -79,10 +80,10 @@ class SmojSubmitCommand(sublime_plugin.TextCommand):
 
 #### Python urllib
 要想用Python `urllib`把代码submit上去，我们就要了解一下SMOJ的POST请求中有哪些成分。我们可以用Chrome自带的Debug功能查看。我先提交一次，从下面的图可以看到：
-![](/img/post/SmojSubmit/PostPackage.png)
+[![Post package](/img/post/SmojSubmit/PostPackage.png)](/img/post/SmojSubmit/PostPackage.png)
 Chrome给SMOJ Post了3个数据，一个是题目的编号`pid`，一个是要提交的源文件类型`language`，另一个是你要提交的代码`code`。  
 但是我们直接Post是不行的，因为我们还要登录。登录嘛，我们再用Chrome的debug功能抓一次包。
-![](/img/post/SmojSubmit/LoginPackage.png)
+[![Login package](/img/post/SmojSubmit/LoginPackage.png)](/img/post/SmojSubmit/LoginPackage.png)
 这次的包有三个数据，`redirect_to`为空，我猜它应该是决定登录之后重定向到哪里；`username`为你的用户名；`password`就是密码的明文。  
 我们Post了登录数据之后还要保留这个`cookie`，因为它在submit的时候还要用到。所以我选的是`urllib`中的`opener`。  
 首先要生成一个`opener`对象：
