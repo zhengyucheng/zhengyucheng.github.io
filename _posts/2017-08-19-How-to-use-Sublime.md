@@ -25,7 +25,7 @@ Sublime Text 3 比 Sublime Text 2 启动更快，而且基于Python 3，所以�
 使用方法：在`User`中创建文件`Monad Cpp.sublime-build`，然后复制、粘贴以下内容并且保存。
 ``` json
 {
-	"shell_cmd": "g++ \"${file}\" -o \"${file_path}/${file_base_name}\" -Wall -O2 -g -std=c++14 -lwininet -static-libstdc++ -static-libgcc -lws2_32",
+	"shell_cmd": "g++ \"${file}\" -o \"${file_path}/${file_base_name}\" -Wall -O2 -g -lwininet -static-libstdc++ -static-libgcc -lws2_32",
 	"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
 	"working_dir": "${file_path}",
 	"selector": "source.c++, source.cpp, source.cxx",
@@ -35,7 +35,7 @@ Sublime Text 3 比 Sublime Text 2 启动更快，而且基于Python 3，所以�
 	[
 		{
 			"name": "Run",
-			"shell_cmd": "echo Compiling ${file} =^> ${file_base_name}.exe && g++ \"${file}\" -o \"${file_path}/${file_base_name}\" -Wall -O2 -g -std=c++14 -lwininet -static-libstdc++ -static-libgcc -lws2_32 && echo Running ${file_base_name}.exe && \"${file_path}/${file_base_name}\""
+			"shell_cmd": "echo Compiling ${file} =^> ${file_base_name}.exe && g++ \"${file}\" -o \"${file_path}/${file_base_name}\" -Wall -O2 -g -lwininet -static-libstdc++ -static-libgcc -lws2_32 && echo Running ${file_base_name}.exe && \"${file_path}/${file_base_name}\""
 		},
 		{
 			"name": "Only run",
@@ -43,7 +43,7 @@ Sublime Text 3 比 Sublime Text 2 启动更快，而且基于Python 3，所以�
 		},
 		{
 			"name": "Run in Console (compile)",
-			"shell_cmd": "echo Compiling ${file} =^> ${file_base_name}.exe && g++ \"${file}\" -o \"${file_path}/${file_base_name}\" -Wall -O2 -g -std=c++14 -lwininet -static-libstdc++ -static-libgcc -lws2_32 && echo Running ${file_base_name}.exe && start ConsolePauser.exe \"${file_path}/${file_base_name}.exe\""
+			"shell_cmd": "echo Compiling ${file} =^> ${file_base_name}.exe && g++ \"${file}\" -o \"${file_path}/${file_base_name}\" -Wall -O2 -g -lwininet -static-libstdc++ -static-libgcc -lws2_32 && echo Running ${file_base_name}.exe && start ConsolePauser.exe \"${file_path}/${file_base_name}.exe\""
 		},
 		{
 			"name": "Run in Console (Run only)",
