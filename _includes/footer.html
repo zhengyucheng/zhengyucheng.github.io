@@ -223,6 +223,23 @@ $(function() {
 })
 </script>
 
+<!-- Picture figure -->
+<script type="text/javascript">
+$('img').closest('a').wrap('<figure></figure>');
+
+$(function() {
+    $('figure').each(function() {
+        var that = $(this)[0];
+        var img        = that.getElementsByTagName('a')[0].getElementsByTagName('img')[0];
+        var figcaption = document.createElement('figcaption');
+        var title      = document.createTextNode($(img).attr('alt'));
+        $(figcaption).attr('align', 'center');
+        figcaption.appendChild(title     );
+        that      .appendChild(figcaption);
+    });
+})
+</script>
+
 <!-- Baidu Analytics -->
 {% if site.ba_track_id %}
 {% if site.inserver %}
