@@ -172,6 +172,15 @@ a img:hover,
 a img:focus {
   cursor: zoom-in;
 }
+figcaption {
+    min-width: 20%;
+    min-height: 22px;
+    display: inline-block;
+    border-bottom: 1px solid #d9d9d9;
+    font-size: 16px;
+    color: #999999;
+    line-height: 1.7;
+}
 article {
   overflow-x: hidden;
 }
