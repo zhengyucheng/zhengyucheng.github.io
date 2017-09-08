@@ -173,14 +173,18 @@ a img:focus {
   cursor: zoom-in;
 }
 figcaption {
-    min-width: 20%;
-    min-height: 22px;
-    display: inline-block;
-    border-bottom: 1px solid #d9d9d9;
-    font-size: 16px;
-    color: #999999;
-    line-height: 1.7;
-    margin: auto;
+  min-width: 20%;
+  max-width: 80%;
+  min-height: 18px;
+  display: inline-block;
+  margin: 0 auto;
+  border-bottom: 1px solid #d9d9d9;
+  font-size: 16px;
+  color: #999999;
+  text-align: center;
+}
+figure {
+  text-align: center;
 }
 article {
   overflow-x: hidden;

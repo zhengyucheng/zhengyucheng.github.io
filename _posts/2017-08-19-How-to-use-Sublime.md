@@ -66,10 +66,10 @@ Sublime Text 3 比 Sublime Text 2 启动更快，而且基于Python 3，所以�
 #### 添加g++至 PATH
 如果你现在不能正确地执行上面的编译选项，那么请检查你是否把g++所在目录添加至PATH。步骤如下：
 1. 找出你g++.exe所在目录，并且复制：
-[![g++ PATH](/img/post/How-to-use-Sublime/CxxPath.png)](/img/post/How-to-use-Sublime/CxxPath.png)
+[![g++ PATH](/img/post/How-to-use-Sublime/CxxPath.png)](/img/post/How-to-use-Sublime/CxxPath.png)  
 2. 右键`我的电脑`，依次选择`属性`，`环境变量`，然后双击`PATH`，在`变量值`中添加`;`和刚刚复制的目录。
-[![Set PATH steps](/img/post/How-to-use-Sublime/PathSteps.png)](/img/post/How-to-use-Sublime/PathSteps.png)
-3. 如果要用上面的`Run in Console (compile)`和`Run in Console (Run only)`，请把Dev-C++根目录下的`ConsolePauser.exe`复制到上述g++所在的目录中。
+[![Set PATH steps](/img/post/How-to-use-Sublime/PathSteps.png)](/img/post/How-to-use-Sublime/PathSteps.png)  
+3. 如果要用上面的`Run in Console (compile)`和`Run in Console (Run only)`，请把Dev-C++根目录下的`ConsolePauser.exe`复制到上述g++所在的目录中。  
 4. 重启Sublime Text。  
 
 好了，现在你可以优雅地使用Sublime Text了。
@@ -77,22 +77,22 @@ Sublime Text 3 比 Sublime Text 2 启动更快，而且基于Python 3，所以�
 ### 插件
 Sublime不仅原生功能强大，而且还支持插件，这让你可以定制属于你的编辑器。插件的安装方式主要有两种：
 1. **直接安装**
-Sublime可以很方便地安装插件，只要把下载的插件解压到`Packages`（可以用`Preferences → Brower Packages...`打开）中，Sublime就会自动加载并激活插件。
+Sublime可以很方便地安装插件，只要把下载的插件解压到`Packages`（可以用`Preferences → Brower Packages...`打开）中，Sublime就会自动加载并激活插件。  
 
 2. **通过Package Control安装**
 如果还是嫌第一种安装方式太慢了，那么可以使用Package Control来安装。通过`Tools → Command Palette...`打开命令面板，然后选择`Install Package Control`，等待它安装完成即可。
 当Package Control安装完成之后，你就可以通过命令面板选择`Package Control: Install Package`，Package Control就会搜索可用插件，并且显示出来，然后选择一个你想要安装的插件，按下回车就可以了。Package Control还有更多功能，在命令面板输入`Package Control`就可以浏览可用命令。
 
->如果你没有找到`Install Package Control`选项，那么你可能正在使用旧版的Sublime Text。这时，你需要通过另一种方式安装Package Control。
->按下`Ctrl`+`` ` ``打开Console（如果快捷键冲突，则可以在`View → Show Console`打开），然后把以下代码粘贴进去并回车：
->* **Sublime Text 2**
->``` python
->import urllib2,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')
->```
->* **Sublime Text 3**
->``` python
->import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
->```
+如果你没有找到`Install Package Control`选项，那么你可能正在使用旧版的Sublime Text。这时，你需要通过另一种方式安装Package Control。
+按下`Ctrl`+`` ` ``打开Console（如果快捷键冲突，则可以在`View → Show Console`打开），然后把以下代码粘贴进去并回车：
+**Sublime Text 2**
+``` python
+import urllib2,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')
+```
+**Sublime Text 3**
+``` python
+import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+```
 
 #### 插件推荐
 **无插件，不神器**，下面就介绍一些常用的插件。[ 回家再补图 ]
