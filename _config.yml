@@ -42,8 +42,9 @@ kramdown:
   input: GFM                            # use Github Flavored Markdown !important
   syntax_highlighter: rouge
 
-# Baidu Analytics
+# Analytics
 ba_track_id: a105f7a51093c08c1aaa8bec96428621
+ga_track_id: UA-106147042-1
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
