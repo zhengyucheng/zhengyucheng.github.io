@@ -1,0 +1,11 @@
+User-agent: Googlebot
+Sitemap: http://YanWQ-monad.github.io/sitemap.xml
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: *
+Disallow: /js/
+Disallow: /css/
+Disallow: /img/
+Disallow: /less/
