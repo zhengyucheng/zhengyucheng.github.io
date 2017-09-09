@@ -12,7 +12,11 @@ sitemap: false
     {% else %}
     <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
     {% endif %}
+    {% if post.changefreq %}
+    <changefreq>{{ post.changefreq }}</changefreq>
+    {% else %}
     <changefreq>weekly</changefreq>
+    {% endif %}
     <priority>1.0</priority>
   </url>
   {% endfor %}
