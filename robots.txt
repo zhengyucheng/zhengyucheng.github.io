@@ -1,2 +1,10 @@
+User-agent: Googlebot
+Disallow: 
+Disallow: /js/
+Disallow: /css/
+Disallow: /img/
+Disallow: /less/
+Sitemap: http://YanWQ-monad.github.io/sitemap.xml
+
 User-agent: *
 Disallow: /
