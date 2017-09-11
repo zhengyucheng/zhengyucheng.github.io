@@ -8,9 +8,9 @@ sitemap: false
   <url>
     <loc>{{ site.url }}{{ post.url }}</loc>
     {% if post.lastmod == null %}
-    <lastmod>{{ post.date    | date_to_xmlschema }}</lastmod>
+    <lastmod>{{ post.date    | date: "%Y-%m-%d" }}</lastmod>
     {% else %}
-    <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
+    <lastmod>{{ post.lastmod | date: "%Y-%m-%d" }}</lastmod>
     {% endif %}
     {% if post.changefreq %}
     <changefreq>{{ post.changefreq }}</changefreq>
@@ -25,9 +25,9 @@ sitemap: false
   {% if page.sitemap != false %}
   <url>
     <loc>{{ site.url }}{{ page.url }}</loc>
-    <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
+    <lastmod>{{ page.lastmod | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>1.2</priority>
+    <priority>1.0</priority>
   </url>
   {% endif %}
   {% endfor %}
