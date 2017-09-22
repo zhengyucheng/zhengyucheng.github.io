@@ -25,9 +25,13 @@ sitemap: false
   {% if page.sitemap != false %}
   <url>
     <loc>{{ site.url }}{{ page.url }}</loc>
-    <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
+    {% if page.lastmod == null %}
+    <lastmod>2017-08-17T12:00:00+00:00</lastmod>
+    {% else %}
+    <lastmod>{{ page.lastmod | date_to_xmlschema }}</lastmod>
+    {% endif %}
     <changefreq>monthly</changefreq>
-    <priority>1.2</priority>
+    <priority>1.0</priority>
   </url>
   {% endif %}
   {% endfor %}
