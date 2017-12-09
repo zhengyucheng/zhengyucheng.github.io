@@ -5,9 +5,9 @@ date:       2017-06-00 00:00:00
 ---
 
 {% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
+<div itemscope itemtype="http://schema.org/Article" class="post-preview">
+    <a itemprop="url" content="{{ post.url | prepend: site.baseurl | prepend: site.url }}" href="{{ post.url | prepend: site.baseurl }}">
+        <h2 itemprop="name" class="post-title">
             {{ post.title }}
         </h2>
         {% if post.subtitle %}
@@ -15,12 +15,21 @@ date:       2017-06-00 00:00:00
             {{ post.subtitle }}
         </h3>
         {% endif %}
-        <div class="post-content-preview">
+        <div itemprop="articleBody" class="post-content-preview">
             {{ post.content | strip_html | truncate:200 }}
         </div>
     </a>
     <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        Posted by
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span itemprop="name">
+                {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %}
+            </span>
+        </span>
+        on
+        <span itemprop="datePublished" itemprop="dateModified" content="{{ post.date | date: '%Y-%m-%d' }}">
+            {{ post.date | date: "%B %-d, %Y" }}
+        </span>
     </p>
 </div>
 <hr>
