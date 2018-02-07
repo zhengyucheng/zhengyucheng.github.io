@@ -8,7 +8,7 @@ keyword: ""
 url: "https://blog.monad.ga"              # your host, for absolute URL
 baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 
-inserver: true
+inserver: false
 
 # MathJax
 mathjax: true
@@ -22,8 +22,6 @@ github_username:    YanWQ-monad
 #facebook_username:  YanWQ-monad
 google_plus_id: 112757454778156334087
 qq_id: 643172561
-
-
 
 # Build settings
 highlighter: rouge
