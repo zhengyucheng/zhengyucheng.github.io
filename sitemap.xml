@@ -22,13 +22,14 @@ sitemap: false
   {% endfor %}
 
   {% for page in site.pages %}
-  {% if page.sitemap != false %}
+  {% assign suffix = page.url | split: '.' | last %}
+  {% if page.sitemap != false and suffix != "js" and suffix != "css" %}
   <url>
     <loc>{{ site.url }}{{ page.url }}</loc>
-    {% if page.lastmod == null %}
-    <lastmod>2017-08-17T12:00:00+00:00</lastmod>
-    {% else %}
+    {% if page.lastmod %}
     <lastmod>{{ page.lastmod | date_to_xmlschema }}</lastmod>
+    {% else %}
+    <lastmod>2017-08-17T12:00:00+00:00</lastmod>
     {% endif %}
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
