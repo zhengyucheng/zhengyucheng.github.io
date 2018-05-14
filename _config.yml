@@ -1,11 +1,11 @@
 # Site settings
-title: Monad's Blog
-SEOTitle: Monad's Blog
+title: JU's Blog
+SEOTitle: JU's Blog
 header-img: img/home-bg.jpg
-email: YanWQ-monad+blog@gmail.com
+email: 13169703137@163.com
 description: ""
 keyword: ""
-url: "https://blog.monad.ga"              # your host, for absolute URL
+url: "https://zhengyucheng.github.io"              # your host, for absolute URL
 baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 
 inserver: true
@@ -16,12 +16,12 @@ mathjax: true
 # SNS settings
 RSS: true
 #weibo_username:     YanWQ-monad
-zhihu_username:     YanWQ-monad
-github_username:    YanWQ-monad
+#zhihu_username:     YanWQ-monad
+#github_username:    YanWQ-monad
 #twitter_username:   YanWQ-monad
 #facebook_username:  YanWQ-monad
-google_plus_id: 112757454778156334087
-qq_id: 643172561
+#google_plus_id: 112757454778156334087
+#qq_id: 643172561
 
 # Build settings
 highlighter: rouge
@@ -41,15 +41,15 @@ kramdown:
   syntax_highlighter: rouge
 
 # Analytics
-ba_track_id: a105f7a51093c08c1aaa8bec96428621
-ga_track_id: UA-106147042-1
+#ba_track_id: a105f7a51093c08c1aaa8bec96428621
+#ga_track_id: UA-106147042-1
 
 # Disqus
-disqus_username: monadblog
+#disqus_username: monadblog
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "一入OI深似海，从此智商是路人"
+sidebar-about-description: "OH, DUCK"
 sidebar-avatar: /img/Avatar.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
@@ -58,6 +58,10 @@ featured-condition-size: 2              # A tag will be featured if the size of 
 
 # Friends
 friends: [
+  {
+    title: "Monad",
+    href : "https://blog.monad.ga"
+  },
   {
     title: "Ghastlcon",
     href : "https://ghastlcon.cf"
@@ -77,9 +81,5 @@ friends: [
   {
     title: "aspe",
     href : "http://yhf4aspe.blog.163.com"
-  },
-  {
-    title: "JU",
-    href : "http://jublog.blog.163.com"
   }
 ]
