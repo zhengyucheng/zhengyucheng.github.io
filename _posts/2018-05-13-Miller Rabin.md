@@ -1,8 +1,8 @@
 ---
 layout:     post
 title:      "Miller Rabin"
-subtitle:   大质数判定
-date:       2018-05-13
+subtitle:   "大质数判定"
+date:       2018-05-13
 author:     "JU"
 header-img: "img/post-bg-2015.jpg"
 mathjax:    false
