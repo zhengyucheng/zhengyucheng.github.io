@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Miller Rabin"
+title:     "Miller Rabin"
 subtitle:   大质数判定
 date:       2018-05-13
 author:     "JU"
