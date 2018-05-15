@@ -1,0 +1,55 @@
+---
+layout:     post
+title:      "KMP"
+subtitle:   "字符串匹配"
+date:       2018-05-13
+author:     "JU"
+header-img: "img/post-bg-2015.jpg"
+mathjax:    false
+catalog:    true
+tags:
+    - 字符串
+    - 匹配
+---
+
+## 主程序
+每当一次暴力匹配后，假如模式串的前j个字符与主串的i~i+j-1个字符成功匹配，我们则可以从其中获得一些有用的信息。举个栗子，在模式串AABCAA......中，前6个字符成功匹配了：  
+YLYC DSBAABCAA QRS  
+　 　 　   　AABCAA......  
+此时记这段字符的前缀`pre[]`为`{AABCA，AABC，AAB，AA，A}`，后缀`suf[]`为`{ABCAA,BCAA,CAA,AA,A}`。容易发现，当`pre[k]==suf[k]`时，可以直接将模式串右移`k`位，从而跳过了一部分枚举。将模式串前`i`个字符匹配成功，`i+1`个失败所需要右移的位数记为`next[i]`。由此可以得出KMP匹配的主代码：  
+	
+	int KMP_Search(const int start=0)
+	{
+		int i=start,j=0;
+		while (i<n && j<m)
+		{
+			if (j==-1 || str[i]==key[j]) i++,j++;
+			else j=next[j];
+		}
+		return (j==m)? (i-j) : -1;
+	}
+	
+## 求Next[]
+因为`next[]`只与模式串有关，所以可以将其预处理。  
+当然，`next[]`也可以暴力求解，O(`m*m`)。不过当较大时，这样容易超时。实际上，有O(`m`)的方法。  
+首先，边界为`next[0]=-1`。假设已经求出了`next[1~i-1]`，要求next[i]。设`k=next[i-1]`，分两种情况：  
+  1)`key[k+1]==key[i]`，所以直接将next往后延伸一位，`next[i]=++k`;  
+  2)`key[k+1]!=key[i]`，此时可不能将`next[i]`重置，不然就变成暴力了嘛。于是可以尝试减少`k`，又要保持是`key`的前缀，即`k=next[k]`。栗(求`next`最后一位，即第二个‘D')：  
+  ABCDABCEABCD  
+  ABCDABCEABCD  
+  可以发现，在D前面接ABCDABC(k)是不行的，于是接少一点，接ABC(next[k])发现可以了。假设仍不行，则递归下去：`next[ next[k] ]`......  
+
+	void init_KMP()
+	{
+		next[0]=-1;
+		for (int i=1,k=-1; i<=m; i++)
+		{
+			while (k!=-1 && key[k]!=key[i-1])
+			k=next[k];
+
+			next[i]=(++k);
+		}
+	}
+
+#### 时间复杂度
+O(`n+m`)
