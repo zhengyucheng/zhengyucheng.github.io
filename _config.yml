@@ -58,28 +58,4 @@ featured-condition-size: 2              # A tag will be featured if the size of 
 
 # Friends
 friends: [
-  {
-    title: "Monad",
-    href : "https://blog.monad.ga"
-  },
-  {
-    title: "Ghastlcon",
-    href : "https://ghastlcon.cf"
-  },
-  {
-    title: "Ufowoqqqo",
-    href : "https://Ufowoqqqo.github.io"
-  },
-  {
-    title: "wyy",
-    href : "http://www.cnblogs.com/littlewyy",
-  },
-  {
-    title: "zqy",
-    href : "http://www.cnblogs.com/yiyiyizqy",
-  },
-  {
-    title: "aspe",
-    href : "http://yhf4aspe.blog.163.com"
-  }
 ]
