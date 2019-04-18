@@ -4,7 +4,7 @@ description: "A blog of JU"
 date:       2017-08-17 12:00:00
 ---
 
-{% for post in paginator.posts %}
+{% for post in site.posts %}
 <div itemscope itemtype="http://schema.org/Article" class="post-preview">
     <a itemprop="url" content="{{ post.url | prepend: site.baseurl | prepend: site.url }}" href="{{ post.url | prepend: site.baseurl }}">
         <h2 itemprop="name" class="post-title">
@@ -36,6 +36,7 @@ date:       2017-08-17 12:00:00
 {% endfor %}
 
 <!-- Pager -->
+<!--
 {% if paginator.total_pages > 1 %}
 <ul class="pager">
     {% if paginator.previous_page %}
@@ -50,3 +51,4 @@ date:       2017-08-17 12:00:00
     {% endif %}
 </ul>
 {% endif %}
+-->
